@@ -106,7 +106,7 @@ public class Main extends javax.swing.JFrame {
         DefaultListModel model = (DefaultListModel) this.jList1.getModel();
         if (model.contains(title)) {
             //Q1: 開啟 message dialog （10%）
-            
+            JOptionPane.showInternalMessageDialog(this.jDesktopPane1, "不可以重複","",JOptionPane.WARNING_MESSAGE);
             ////////////////////
             return;
         }
@@ -114,7 +114,9 @@ public class Main extends javax.swing.JFrame {
         model.addElement(title);
         //Q2: 建立 TaskFrame（等同於 JInternalFrame）
         //加到 jDesktopPane1 (20%)
-        
+        TaskFrame task = new TaskFrame();
+        task.setTitle(title);
+        jDesktopPane1.add(task);
         ///////////////////////////////////////
     }//GEN-LAST:event_buttonNewActionPerformed
 
@@ -133,7 +135,9 @@ public class Main extends javax.swing.JFrame {
             //Q3: 建立 TaskFrame（等同於 JInternalFrame）
             //設定 noteTitle, noteContent
             //加到 jDesktopPane1 (20%)
-            
+            TaskFrame task = new TaskFrame();   
+            task.setTitle(content);
+            jDesktopPane1.add(task);
             //////////////////////////////////////////
         }
     }//GEN-LAST:event_jList1MouseClicked
